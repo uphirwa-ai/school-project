@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+ 
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0f4ff;
+      font-family: Georgia, serif;
+    }
+ 
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 340px;
+    }
+ 
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #222;
+      font-size: 26px;
+    }
+ 
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #555;
+      font-size: 14px;
+    }
+ 
+    input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      margin-bottom: 18px;
+      outline: none;
+      transition: border 0.2s;
+    }
+ 
+    input:focus {
+      border-color: #4a6cf7;
+    }
+ 
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #4a6cf7;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+ 
+    button:hover {
+      background: #3558e0;
+    }
+ 
+    .msg {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 14px;
+      color: red;
+    }
+ 
+    .msg.success {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+ 
+  <div class="card">
+    <h2>Login</h2>
+ 
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="you@example.com">
+ 
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter your password">
+ 
+    <button onclick="login()">Sign In</button>
+    <p class="msg" id="msg"></p>
+  </div>
+ 
+  <script>
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const msg = document.getElementById("msg");
+ 
+      if (email === "" || password === "") {
+        msg.className = "msg";
+        msg.textContent = "Please fill in all fields.";
+        return;
+      }
+ 
+      // Demo check (you'd normally verify with a server)
+      if (email === "user@example.com" && password === "1234") {
+        msg.className = "msg success";
+        msg.textContent = "Login successful! Welcome back.";
+      } else {
+        msg.className = "msg";
+        msg.textContent = "Wrong email or password.";
+      }
+    }
+  </script>
+ 
+</body>
+</html>
